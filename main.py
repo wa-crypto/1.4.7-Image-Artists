@@ -1,3 +1,4 @@
+"""
 '''
 This code will take time to run, be PATIENT!!!!
 '''
@@ -7,12 +8,14 @@ import PIL
 import PIL.ImageDraw            
 
 def round_corners_one_image(original_image, percent_of_side=.3):
+ """
   """ Rounds the corner of a PIL.Image
   
   original_image must be a PIL.Image
   Returns a new PIL.Image with rounded corners, where
   0 < percent_of_side < 1
   is the corner radius as a portion of the shorter dimension of original_image
+  """
   """
   #set the radius of the rounded corners
   width, height = original_image.size
@@ -21,6 +24,7 @@ def round_corners_one_image(original_image, percent_of_side=.3):
   ###
   #create a mask
   ###
+  
   
   #start with transparent mask
   rounded_mask = PIL.Image.new('RGBA', (width, height), (127,0,127,0))
@@ -56,6 +60,7 @@ def round_corners_one_image(original_image, percent_of_side=.3):
   return result
     
 def get_images(directory=None):
+  """
   """ Returns PIL.Image objects for all the images in directory.
   
   If directory is not specified, uses current directory.
@@ -63,7 +68,7 @@ def get_images(directory=None):
   a list with a  PIL.Image object for each image file in root_directory, and
   a list with a string filename for each image file in root_directory
   """
-  
+  """
   if directory == None:
     directory = os.getcwd() # Use working directory if unspecified
 
@@ -82,13 +87,14 @@ def get_images(directory=None):
   return image_list, file_list
 
 def round_corners_of_all_images(directory=None):
+  """
   """ Saves a modfied version of each image in directory.
   
   Uses current directory if no directory is specified. 
   Places images in subdirectory 'modified', creating it if it does not exist.
   New image files are of type PNG and have transparent rounded corners.
   """
-  
+  """
   if directory == None:
     directory = os.getcwd() # Use working directory if unspecified
     directory+='/OriginalImages'   
@@ -117,3 +123,4 @@ def round_corners_of_all_images(directory=None):
     new_image.save(new_image_filename)    
 
 round_corners_of_all_images(directory=None)
+"""
