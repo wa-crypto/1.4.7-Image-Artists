@@ -132,7 +132,7 @@ im2 = Image.open('OriginalImages/familycircle.jpg')
 mask_im = Image.new("L", im2.size, 0)
 mask_im = Image.new("L", im2.size, 0)
 draw = ImageDraw.Draw(mask_im)
-draw.ellipse((140, 50, 260, 170), fill=255)
+draw.ellipse((60, 10, 550, 400), fill=255)
 mask_im.save('mask_circle.jpg', quality=95)
 
 mask_im_blur = mask_im.filter(ImageFilter.GaussianBlur(10))
